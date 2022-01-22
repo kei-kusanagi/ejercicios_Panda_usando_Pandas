@@ -1,6 +1,7 @@
 import pandas as pd
 
-path = "Copia de ETIQUETAR inventario 2015.xlsx"
+# path = "Copia de ETIQUETAR inventario 2015.xlsx"
+path = "inventario SIMPLIFICADO.xlsx"
 df = pd.read_excel(path)
 
 
