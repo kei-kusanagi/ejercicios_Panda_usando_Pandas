@@ -6,15 +6,19 @@ df = pd.read_excel(path)
 
 
 def busqueda(df):
-    solicitud = input("Codigo a buscar: ")
-    BUSQUEDA = [solicitud.upper()]
+    solicitud = input("Codigo a buscar: ").upper()
+    BUSQUEDA = [solicitud]
 
     df["check"] = df["CODIGO"].isin(BUSQUEDA)
+    for n in df["check"]:
+        if df.loc[n,True]:
+            DESC = [df.loc[df.check == True,'DESCRIPCION']]
+            SER = [df.loc[df.check == True,'SERIE']]
+            return DESC, SER
+        else:
+            print(f"no se encontro el codigo: {BUSQUEDA} en el inventario")
 
-    DESC = [df.loc[df.check == True,'DESCRIPCION']]
-    SER = [df.loc[df.check == True,'SERIE']]
 
-    return DESC, SER
 
 
 print(busqueda(df))
