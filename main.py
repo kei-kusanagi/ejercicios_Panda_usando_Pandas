@@ -21,6 +21,7 @@ def search_by_code(dataframe):
     search_list = [search_input]
 
     result = dataframe["CODIGO"].isin(search_list)
+    dataframe["check"] = result
     could_find_code = result.any()
 
     if not could_find_code:
@@ -33,11 +34,9 @@ def search_by_code(dataframe):
     print("\n- Printing result.any():")
     print(result.any())
 
-    result[""]
-
-    # description = [dataframe.loc[dataframe.check == True, 'DESCRIPCION']]
-    # series = [dataframe.loc[dataframe.check == True, 'SERIE']]
-    # return description, series
+    description = [dataframe.loc[dataframe.check == True, 'DESCRIPCION']]
+    series = [dataframe.loc[dataframe.check == True, 'SERIE']]
+    return description, series
 
 
 result = search_by_code(sample_dataframe)
